@@ -1,0 +1,557 @@
+/* =========================================================================
+   estilosIA.css
+   Hoja de estilos del sitio "Mascotas Perdidas"
+   Paleta: azules y blancos. Contrastes calculados para cumplir WCAG 2.2 AAA
+   (relacion de contraste minima 7:1 para texto normal y 4.5:1 para texto
+   grande), segun las pautas del W3C.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   1. Variables de diseño (tokens de color, tipografía y espaciado)
+   ------------------------------------------------------------------------- */
+:root {
+  /* Paleta principal */
+  --color-azul-negro: #0a1f38;      /* texto principal sobre blanco: ~15:1 */
+  --color-azul-oscuro: #123a63;     /* encabezados, texto secundario */
+  --color-azul-primario: #1b4b91;   /* botones, barra de navegación */
+  --color-azul-primario-hover: #123a63;
+  --color-azul-medio: #2f6fae;      /* acentos, bordes de foco */
+  --color-azul-claro: #e8f1fb;      /* fondos suaves */
+  --color-azul-borde: #9db8d9;      /* bordes de tarjetas y campos */
+  --color-blanco: #ffffff;
+  --color-fondo-pagina: #f4f8fd;
+
+  /* Estados */
+  --color-enlace: #123a63;
+  --color-enlace-visitado: #12305c;
+  --color-error: #7a1f1f;
+  --color-foco: #0a1f38;
+
+  /* Tipografía */
+  --fuente-base: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --tamano-base: 1rem;
+  --interlineado-base: 1.6;
+
+  /* Espaciado y forma */
+  --radio-borde: 0.5rem;
+  --ancho-maximo-contenido: 75rem;
+  --tamano-minimo-objetivo: 2.75rem; /* >= 44px, tamaño mínimo de objetivo táctil AAA */
+}
+
+/* -------------------------------------------------------------------------
+   2. Reinicio básico y configuración general
+   ------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-base);
+  font-size: var(--tamano-base);
+  line-height: var(--interlineado-base);
+  color: var(--color-azul-negro);
+  background-color: var(--color-fondo-pagina);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  color: var(--color-azul-oscuro);
+  line-height: 1.3;
+}
+
+p {
+  max-width: 70ch; /* mejora la legibilidad en pantallas anchas */
+}
+
+a {
+  color: var(--color-enlace);
+}
+
+a:visited {
+  color: var(--color-enlace-visitado);
+}
+
+/* Todo elemento interactivo tiene un indicador de foco visible y de alto
+   contraste (WCAG 2.4.7 y 2.4.13 - AAA "Foco no oscurecido / mejorado"). */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+label:focus-within {
+  outline: 3px solid var(--color-foco);
+  outline-offset: 3px;
+  border-radius: 0.2rem;
+}
+
+/* -------------------------------------------------------------------------
+   3. Enlace "saltar al contenido" (WCAG 2.4.1)
+   ------------------------------------------------------------------------- */
+.saltar-enlace {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background-color: var(--color-azul-negro);
+  color: var(--color-blanco);
+  padding: 0.75rem 1.25rem;
+  z-index: 1000;
+  border-radius: 0 0 var(--radio-borde) 0;
+  font-weight: 700;
+}
+
+.saltar-enlace:focus {
+  left: 0;
+}
+
+/* -------------------------------------------------------------------------
+   4. Encabezado y barra de navegación
+   ------------------------------------------------------------------------- */
+.encabezado-sitio {
+  background-color: var(--color-blanco);
+  border-bottom: 1px solid var(--color-azul-borde);
+}
+
+.encabezado-contenido {
+  max-width: var(--ancho-maximo-contenido);
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.marca-sitio {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-azul-negro);
+  text-decoration: none;
+}
+
+.marca-sitio:visited {
+  color: var(--color-azul-negro);
+}
+
+.marca-icono {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.nav-principal {
+  background-color: var(--color-azul-primario);
+}
+
+.nav-lista {
+  max-width: var(--ancho-maximo-contenido);
+  margin: 0 auto;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.nav-lista li {
+  margin: 0;
+}
+
+.nav-lista a {
+  display: flex;
+  align-items: center;
+  min-height: var(--tamano-minimo-objetivo);
+  padding: 0.6rem 1.25rem;
+  color: var(--color-blanco);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 4px solid transparent;
+}
+
+.nav-lista a:visited {
+  color: var(--color-blanco);
+}
+
+.nav-lista a:hover,
+.nav-lista a:focus-visible {
+  background-color: var(--color-azul-primario-hover);
+  text-decoration: underline;
+}
+
+.nav-lista a[aria-current="page"] {
+  border-bottom-color: var(--color-blanco);
+  background-color: var(--color-azul-primario-hover);
+}
+
+/* -------------------------------------------------------------------------
+   5. Estructura general del contenido
+   ------------------------------------------------------------------------- */
+.contenedor {
+  max-width: var(--ancho-maximo-contenido);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+.intro-pagina {
+  margin-bottom: 1.5rem;
+}
+
+.pie-sitio {
+  background-color: var(--color-azul-negro);
+  color: var(--color-blanco);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: 2rem;
+}
+
+.pie-sitio a {
+  color: var(--color-blanco);
+}
+
+/* -------------------------------------------------------------------------
+   6. Filtro por especie (perros / gatos) — construido solo con HTML y CSS,
+   sin JavaScript, usando botones de radio y el combinador de hermanos
+   general (~). Se presenta visualmente como un selector desplegable.
+   ------------------------------------------------------------------------- */
+.filtro-especie {
+  border: 2px solid var(--color-azul-borde);
+  border-radius: var(--radio-borde);
+  background-color: var(--color-blanco);
+  padding: 1rem 1.25rem 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.filtro-especie legend {
+  font-weight: 700;
+  color: var(--color-azul-oscuro);
+  padding: 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.filtro-opciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* Los radios viven fuera del fieldset (para poder actuar como hermanos
+   del listado de mascotas), así que se ocultan visualmente por clase en
+   lugar de por su posición dentro de .filtro-opciones. Siguen siendo
+   accesibles por teclado y por lectores de pantalla. */
+.radio-filtro {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+
+.filtro-opciones label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--tamano-minimo-objetivo);
+  padding: 0.5rem 1.25rem;
+  border: 2px solid var(--color-azul-primario);
+  border-radius: 2rem;
+  color: var(--color-azul-primario);
+  background-color: var(--color-blanco);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Como la etiqueta ya no es hermana directa del radio, se usa el
+   combinador de hermano general (~) hasta el fieldset y luego un
+   descendiente concreto por atributo "for". */
+#filtro-perros:checked ~ .filtro-especie label[for="filtro-perros"],
+#filtro-gatos:checked ~ .filtro-especie label[for="filtro-gatos"] {
+  background-color: var(--color-azul-primario);
+  color: var(--color-blanco);
+}
+
+#filtro-perros:focus-visible ~ .filtro-especie label[for="filtro-perros"],
+#filtro-gatos:focus-visible ~ .filtro-especie label[for="filtro-gatos"] {
+  outline: 3px solid var(--color-foco);
+  outline-offset: 3px;
+}
+
+/* -------------------------------------------------------------------------
+   7. Listado de mascotas (tarjetas)
+   ------------------------------------------------------------------------- */
+.listado-mascotas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.75rem;
+  justify-items: center;
+}
+
+.tarjeta-mascota {
+  width: 100%;
+  max-width: 20rem;
+  background-color: var(--color-blanco);
+  border: 2px solid var(--color-azul-primario);
+  border-radius: var(--radio-borde);
+  padding: 1rem;
+  display: none; /* oculto por defecto; el filtro de especie lo muestra */
+  flex-direction: column;
+  text-align: center;
+}
+
+/* El filtro de especie (radios "perros"/"gatos") controla qué tarjetas
+   se muestran. Ambos radios están antes del listado en el HTML, por lo
+   que el combinador ~ puede alcanzar el contenedor .listado-mascotas. */
+#filtro-perros:checked ~ .listado-mascotas .tarjeta-mascota.especie-perro,
+#filtro-gatos:checked ~ .listado-mascotas .tarjeta-mascota.especie-gato {
+  display: flex;
+}
+
+.marco-imagen-mascota {
+  /* "borde" y "relleno" uniformes para todas las imágenes, mismo tamaño */
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: var(--color-azul-claro);
+  border: 3px solid var(--color-azul-primario);
+  border-radius: 0.4rem;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.85rem;
+  overflow: hidden;
+}
+
+.marco-imagen-mascota img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tarjeta-mascota h3 {
+  margin: 0.25rem 0 0.35rem;
+  font-size: 1.25rem;
+}
+
+.tarjeta-mascota .dato-clave {
+  font-weight: 700;
+  color: var(--color-azul-oscuro);
+}
+
+.tarjeta-mascota .lista-datos {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.tarjeta-mascota .lista-datos li {
+  padding: 0.2rem 0;
+  border-bottom: 1px solid var(--color-azul-claro);
+}
+
+.enlace-info-pdf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: var(--tamano-minimo-objetivo);
+  margin-top: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--color-azul-primario);
+  color: var(--color-blanco);
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 0.4rem;
+}
+
+.enlace-info-pdf:visited {
+  color: var(--color-blanco);
+}
+
+.enlace-info-pdf:hover,
+.enlace-info-pdf:focus-visible {
+  background-color: var(--color-azul-primario-hover);
+  text-decoration: underline;
+}
+
+.aviso-lista-vacia {
+  display: none;
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--color-azul-oscuro);
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------------------------
+   8. Formularios (página de contacto)
+   ------------------------------------------------------------------------- */
+.formulario-contacto {
+  background-color: var(--color-blanco);
+  border: 2px solid var(--color-azul-borde);
+  border-radius: var(--radio-borde);
+  padding: 1.5rem;
+  max-width: 34rem;
+}
+
+.grupo-campo {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.grupo-campo label {
+  font-weight: 700;
+  color: var(--color-azul-oscuro);
+  margin-bottom: 0.35rem;
+}
+
+.texto-ayuda {
+  font-size: 0.9rem;
+  color: var(--color-azul-oscuro);
+  margin: 0.15rem 0 0.4rem;
+}
+
+.grupo-campo input {
+  min-height: var(--tamano-minimo-objetivo);
+  padding: 0.6rem 0.75rem;
+  border: 2px solid var(--color-azul-borde);
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--color-azul-negro);
+  background-color: var(--color-blanco);
+}
+
+.grupo-campo input:focus-visible {
+  border-color: var(--color-azul-primario);
+}
+
+.campo-obligatorio::after {
+  content: " (obligatorio)";
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--color-error);
+}
+
+.boton-primario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tamano-minimo-objetivo);
+  padding: 0.65rem 1.75rem;
+  background-color: var(--color-azul-primario);
+  color: var(--color-blanco);
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.boton-primario:hover,
+.boton-primario:focus-visible {
+  background-color: var(--color-azul-primario-hover);
+}
+
+/* -------------------------------------------------------------------------
+   9. Página "Información del Sitio"
+   ------------------------------------------------------------------------- */
+.tarjeta-info-sitio {
+  background-color: var(--color-blanco);
+  border: 2px solid var(--color-azul-borde);
+  border-radius: var(--radio-borde);
+  padding: 1.5rem;
+  max-width: 34rem;
+}
+
+.tarjeta-info-sitio dt {
+  font-weight: 700;
+  color: var(--color-azul-oscuro);
+  margin-top: 0.75rem;
+}
+
+.tarjeta-info-sitio dd {
+  margin: 0.15rem 0 0;
+}
+
+/* -------------------------------------------------------------------------
+   10. Utilidades de accesibilidad
+   ------------------------------------------------------------------------- */
+.oculto-visualmente {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -------------------------------------------------------------------------
+   11. Diseño responsivo
+   ------------------------------------------------------------------------- */
+@media (max-width: 40rem) {
+  .encabezado-contenido {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-lista {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-lista a {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+  }
+
+  .listado-mascotas {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario-contacto,
+  .tarjeta-info-sitio {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 40.01rem) and (max-width: 64rem) {
+  .listado-mascotas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Respeta la preferencia del usuario de reducir el movimiento */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Modo de alto contraste / colores forzados del sistema operativo */
+@media (forced-colors: active) {
+  .nav-lista a[aria-current="page"],
+  .filtro-opciones input[type="radio"]:checked + label,
+  .enlace-info-pdf,
+  .boton-primario {
+    forced-color-adjust: none;
+    border: 2px solid CanvasText;
+  }
+}

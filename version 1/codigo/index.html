@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de Mascotas Perdidas | Mascotas Perdidas</title>
+  <meta name="description" content="Listado de perros y gatos perdidos. Filtra por especie y consulta la ficha en PDF de cada mascota.">
+  <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+  <a class="saltar-enlace" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <header class="encabezado-sitio">
+    <div class="encabezado-contenido">
+      <a class="marca-sitio" href="index.html">
+        <span class="marca-icono" aria-hidden="true">🐾</span>
+        <span>Mascotas Perdidas</span>
+      </a>
+    </div>
+    <nav class="nav-principal" aria-label="Navegación principal">
+      <ul class="nav-lista">
+        <li><a href="index.html" aria-current="page">Listado de Mascotas</a></li>
+        <li><a href="contacto.html">Información de Contacto</a></li>
+        <li><a href="sitio.html">Información del Sitio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido-principal" class="contenedor">
+    <h1>Listado de Mascotas Perdidas</h1>
+    <p class="intro-pagina">
+      A continuación se muestra la lista de mascotas reportadas como perdidas.
+      Elija una especie para ver únicamente los perros o los gatos extraviados.
+      Cada tarjeta incluye los datos principales y un enlace para descargar la
+      ficha completa en formato PDF.
+    </p>
+
+    <!--
+      Filtro de especie construido solo con HTML y CSS (sin JavaScript).
+      Se usan botones de radio ocultos visualmente y etiquetas con
+      apariencia de selector; el combinador de hermanos general (~) en
+      estilosIA.css muestra únicamente las tarjetas de la especie elegida.
+    -->
+    <div class="filtro-y-listado">
+      <!-- Los dos botones de radio deben ser hermanos directos del listado
+           de mascotas para que el selector CSS "~" (hermano general)
+           pueda mostrar u ocultar las tarjetas sin usar JavaScript. -->
+      <input type="radio" name="especie" id="filtro-perros" class="radio-filtro" checked>
+      <input type="radio" name="especie" id="filtro-gatos" class="radio-filtro">
+
+      <fieldset class="filtro-especie">
+        <legend>Filtrar por especie</legend>
+        <div class="filtro-opciones">
+          <label for="filtro-perros">🐶 Perros</label>
+          <label for="filtro-gatos">🐱 Gatos</label>
+        </div>
+      </fieldset>
+
+      <div class="listado-mascotas" aria-label="Resultados del listado de mascotas">
+
+        <!-- ============================= PERROS ============================= -->
+        <article class="tarjeta-mascota especie-perro">
+          <div class="marco-imagen-mascota">
+            <img src="../imagenes/perro1.svg" alt="Ilustración de Rocky, un labrador dorado con collar rojo">
+          </div>
+          <h3>Rocky</h3>
+          <ul class="lista-datos">
+            <li><span class="dato-clave">Especie:</span> Perro — Labrador dorado</li>
+            <li><span class="dato-clave">Edad aprox.:</span> 3 años</li>
+            <li><span class="dato-clave">Visto por última vez:</span> Parque Central, cerca de la fuente</li>
+            <li><span class="dato-clave">Fecha:</span> 10 de septiembre de 2026</li>
+          </ul>
+          <a class="enlace-info-pdf" href="../info/perro1.pdf">
+            Ver ficha en PDF de Rocky
+            <span class="oculto-visualmente">(se abre un archivo PDF)</span>
+          </a>
+        </article>
+
+        <article class="tarjeta-mascota especie-perro">
+          <div class="marco-imagen-mascota">
+            <img src="../imagenes/perro2.svg" alt="Ilustración de Luna, un Border Collie blanco y negro con collar azul">
+          </div>
+          <h3>Luna</h3>
+          <ul class="lista-datos">
+            <li><span class="dato-clave">Especie:</span> Perro — Border Collie</li>
+            <li><span class="dato-clave">Edad aprox.:</span> 2 años</li>
+            <li><span class="dato-clave">Visto por última vez:</span> Avenida Los Robles, frente a la escuela</li>
+            <li><span class="dato-clave">Fecha:</span> 5 de septiembre de 2026</li>
+          </ul>
+          <a class="enlace-info-pdf" href="../info/perro2.pdf">
+            Ver ficha en PDF de Luna
+            <span class="oculto-visualmente">(se abre un archivo PDF)</span>
+          </a>
+        </article>
+
+        <article class="tarjeta-mascota especie-perro">
+          <div class="marco-imagen-mascota">
+            <img src="../imagenes/perro3.svg" alt="Ilustración de Toby, un Beagle sin collar con una pequeña cicatriz en la oreja izquierda">
+          </div>
+          <h3>Toby</h3>
+          <ul class="lista-datos">
+            <li><span class="dato-clave">Especie:</span> Perro — Beagle</li>
+            <li><span class="dato-clave">Edad aprox.:</span> 5 años</li>
+            <li><span class="dato-clave">Visto por última vez:</span> Barrio Las Flores, calle 12</li>
+            <li><span class="dato-clave">Fecha:</span> 12 de septiembre de 2026</li>
+          </ul>
+          <a class="enlace-info-pdf" href="../info/perro3.pdf">
+            Ver ficha en PDF de Toby
+            <span class="oculto-visualmente">(se abre un archivo PDF)</span>
+          </a>
+        </article>
+
+        <!-- ============================= GATOS ============================= -->
+        <article class="tarjeta-mascota especie-gato">
+          <div class="marco-imagen-mascota">
+            <img src="../imagenes/gato1.svg" alt="Ilustración de Milo, un gato atigrado naranja con collar verde y cascabel">
+          </div>
+          <h3>Milo</h3>
+          <ul class="lista-datos">
+            <li><span class="dato-clave">Especie:</span> Gato — Atigrado naranja</li>
+            <li><span class="dato-clave">Edad aprox.:</span> 1 año</li>
+            <li><span class="dato-clave">Visto por última vez:</span> Calle Girasoles, cerca del mercado</li>
+            <li><span class="dato-clave">Fecha:</span> 8 de septiembre de 2026</li>
+          </ul>
+          <a class="enlace-info-pdf" href="../info/gato1.pdf">
+            Ver ficha en PDF de Milo
+            <span class="oculto-visualmente">(se abre un archivo PDF)</span>
+          </a>
+        </article>
+
+        <article class="tarjeta-mascota especie-gato">
+          <div class="marco-imagen-mascota">
+            <img src="../imagenes/gato2.svg" alt="Ilustración de Nina, una gata blanca y negra con un ojo azul y un ojo verde">
+          </div>
+          <h3>Nina</h3>
+          <ul class="lista-datos">
+            <li><span class="dato-clave">Especie:</span> Gato — Mestiza blanco y negro</li>
+            <li><span class="dato-clave">Edad aprox.:</span> 4 años</li>
+            <li><span class="dato-clave">Visto por última vez:</span> Plaza Mayor, junto a los bancos</li>
+            <li><span class="dato-clave">Fecha:</span> 11 de septiembre de 2026</li>
+          </ul>
+          <a class="enlace-info-pdf" href="../info/gato2.pdf">
+            Ver ficha en PDF de Nina
+            <span class="oculto-visualmente">(se abre un archivo PDF)</span>
+          </a>
+        </article>
+
+        <article class="tarjeta-mascota especie-gato">
+          <div class="marco-imagen-mascota">
+            <img src="../imagenes/gato3.svg" alt="Ilustración de Simón, un gato gris azulado con collar amarillo">
+          </div>
+          <h3>Simón</h3>
+          <ul class="lista-datos">
+            <li><span class="dato-clave">Especie:</span> Gato — Gris azulado</li>
+            <li><span class="dato-clave">Edad aprox.:</span> 2 años</li>
+            <li><span class="dato-clave">Visto por última vez:</span> Residencial El Bosque, edificio 4</li>
+            <li><span class="dato-clave">Fecha:</span> 9 de septiembre de 2026</li>
+          </ul>
+          <a class="enlace-info-pdf" href="../info/gato3.pdf">
+            Ver ficha en PDF de Simón
+            <span class="oculto-visualmente">(se abre un archivo PDF)</span>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="pie-sitio">
+    <p>Sitio informativo sin fines de lucro para ayudar a reunir mascotas perdidas con sus familias.</p>
+    <p><a href="sitio.html">Información del Sitio</a> · <a href="contacto.html">Información de Contacto</a></p>
+  </footer>
+</body>
+</html>
