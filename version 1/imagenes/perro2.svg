@@ -1,0 +1,15 @@
+<svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustracion de un perro">
+<rect width="260" height="260" fill="#ffffff"/>
+<ellipse cx="130" cy="150" rx="95" ry="85" fill="#fdf6ec" stroke="#2b2b2b" stroke-width="3"/>
+<ellipse cx="130" cy="95" rx="18" ry="22" fill="#2e6da4" opacity="0.25"/>
+<ellipse cx="80" cy="105" rx="28" ry="45" fill="#fdf6ec" stroke="#2b2b2b" stroke-width="3" transform="rotate(-25 80 105)"/>
+<ellipse cx="180" cy="105" rx="28" ry="45" fill="#fdf6ec" stroke="#2b2b2b" stroke-width="3" transform="rotate(25 180 105)"/>
+<circle cx="105" cy="140" r="9" fill="#2b2b2b"/>
+<circle cx="155" cy="140" r="9" fill="#2b2b2b"/>
+<circle cx="102" cy="137" r="2.5" fill="#ffffff"/>
+<circle cx="152" cy="137" r="2.5" fill="#ffffff"/>
+<ellipse cx="130" cy="168" rx="14" ry="10" fill="#2b2b2b"/>
+<path d="M130 178 q0 14 -16 18" stroke="#2b2b2b" stroke-width="3" fill="none" stroke-linecap="round"/>
+<path d="M130 178 q0 14 16 18" stroke="#2b2b2b" stroke-width="3" fill="none" stroke-linecap="round"/>
+<rect x="95" y="215" width="70" height="12" rx="6" fill="#2e6da4" stroke="#2b2b2b" stroke-width="2"/>
+</svg>
