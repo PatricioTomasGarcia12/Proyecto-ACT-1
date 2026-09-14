@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de Mascotas Perdidas</title>
+  <link rel="stylesheet" href="estilosIA.css">
+</head>
+<body>
+
+  <header role="banner">
+    <h1>Anuncio de Mascotas Perdidas</h1>
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html" aria-current="page">Listado de Mascotas</a></li>
+        <li><a href="contacto.html">Información de Contacto</a></li>
+        <li><a href="info_sitio.html">Información del Sitio</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <h2>Mascotas Buscadas</h2>
+    <p style="text-align: center; margin-bottom: 1.5rem;">
+      Seleccione una especie para filtrar el listado.
+    </p>
+
+    <!-- Controles mediante Radio Buttons nativos para prescindir de JavaScript -->
+    <input type="radio" name="especie-filter" id="radio-todos" class="filter-toggle" checked>
+    <input type="radio" name="especie-filter" id="radio-perros" class="filter-toggle">
+    <input type="radio" name="especie-filter" id="radio-gatos" class="filter-toggle">
+
+    <div class="filter-container">
+      <label for="filtro-especie">Filtrar por especie:</label>
+      <div class="filter-select-wrapper">
+        <select id="filtro-especie" onchange="document.getElementById('radio-' + this.value).checked = true;">
+          <option value="todos">Mostrar Todas</option>
+          <option value="perros">Perros</option>
+          <option value="gatos">Gatos</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Contenedor con la grilla de mascotas -->
+    <div class="pet-grid">
+
+      <!-- PERRO 1 -->
+      <article class="pet-card perro">
+        <div class="pet-image-wrapper">
+          <img src="../imágenes/perro1.jpg" alt="Perro mestizo color marrón, tamaño mediano de nombre Firulais">
+        </div>
+        <a href="../info/perro1.pdf" class="pet-info-link" target="_blank" rel="noopener">
+          + Info <span class="visually-hidden">de Firulais (PDF)</span>
+        </a>
+      </article>
+
+      <!-- PERRO 2 -->
+      <article class="pet-card perro">
+        <div class="pet-image-wrapper">
+          <img src="../imágenes/perro2.jpg" alt="Perro caniche blanco pequeño de nombre Choco">
+        </div>
+        <a href="../info/perro2.pdf" class="pet-info-link" target="_blank" rel="noopener">
+          + Info <span class="visually-hidden">de Choco (PDF)</span>
+        </a>
+      </article>
+
+      <!-- PERRO 3 -->
+      <article class="pet-card perro">
+        <div class="pet-image-wrapper">
+          <img src="../imágenes/perro3.jpg" alt="Perro ovejero alemán negro y fuego de nombre Rex">
+        </div>
+        <a href="../info/perro3.pdf" class="pet-info-link" target="_blank" rel="noopener">
+          + Info <span class="visually-hidden">de Rex (PDF)</span>
+        </a>
+      </article>
+
+      <!-- GATO 1 -->
+      <article class="pet-card gato">
+        <div class="pet-image-wrapper">
+          <img src="../imágenes/gato1.jpg" alt="Gato atigrado gris y negro con ojos verdes de nombre Mishi">
+        </div>
+        <a href="../info/gato1.pdf" class="pet-info-link" target="_blank" rel="noopener">
+          + Info <span class="visually-hidden">de Mishi (PDF)</span>
+        </a>
+      </article>
+
+      <!-- GATO 2 -->
+      <article class="pet-card gato">
+        <div class="pet-image-wrapper">
+          <img src="../imágenes/gato2.jpg" alt="Gato siamés de color crema y orejas oscuras de nombre Luna">
+        </div>
+        <a href="../info/gato2.pdf" class="pet-info-link" target="_blank" rel="noopener">
+          + Info <span class="visually-hidden">de Luna (PDF)</span>
+        </a>
+      </article>
+
+      <!-- GATO 3 -->
+      <article class="pet-card gato">
+        <div class="pet-image-wrapper">
+          <img src="../imágenes/gato3.jpg" alt="Gato de pelaje totalmente negro y ojos amarillos de nombre Pelusa">
+        </div>
+        <a href="../info/gato3.pdf" class="pet-info-link" target="_blank" rel="noopener">
+          + Info <span class="visually-hidden">de Pelusa (PDF)</span>
+        </a>
+      </article>
+
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <p>&copy; 2026 - Sitio de Anuncio de Mascotas Perdidas</p>
+  </footer>
+
+</body>
+</html>
